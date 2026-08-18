@@ -153,9 +153,9 @@ export default function GrowthStationPlaybook() {
       const html2pdf = html2pdfModule.default;
 
       const opt = {
-        margin: [10, 10, 10, 10],
+        margin: [10, 10, 10, 10] as [number, number, number, number],
         filename: 'Growth_Station_Playbook.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
+        image: { type: 'jpeg' as const, quality: 0.98 },
         html2canvas: { 
           scale: 2,
           useCORS: true,
@@ -166,7 +166,7 @@ export default function GrowthStationPlaybook() {
         jsPDF: { 
           unit: 'mm', 
           format: 'a4', 
-          orientation: 'portrait' 
+          orientation: 'portrait' as const 
         },
         pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
       };
@@ -175,7 +175,7 @@ export default function GrowthStationPlaybook() {
       document.body.classList.add('pdf-generation-mode');
 
       // Add a loading state
-      const button = document.getElementById('btnPdf');
+      const button = document.getElementById('btnPdf') as HTMLButtonElement;
       if (button) {
         button.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="animate-spin"><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>Generating...';
         button.disabled = true;
@@ -188,7 +188,7 @@ export default function GrowthStationPlaybook() {
         // Reset button
         if (button) {
           button.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 21h16"/></svg><span class="full">Download PDF</span>';
-          button.disabled = false;
+          (button as HTMLButtonElement).disabled = false;
         }
       }).catch((error) => {
         console.error('PDF generation failed:', error);
@@ -199,7 +199,7 @@ export default function GrowthStationPlaybook() {
         // Reset button on error
         if (button) {
           button.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12"/><path d="M7 10l5 5 5-5"/><path d="M4 21h16"/></svg><span class="full">Download PDF</span>';
-          button.disabled = false;
+          (button as HTMLButtonElement).disabled = false;
         }
       });
     } catch (error) {
@@ -213,7 +213,7 @@ export default function GrowthStationPlaybook() {
       <div className="login-container">
         <div className="login-card">
           <div className="login-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" width="48" height="48">
               <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
               <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
             </svg>
@@ -653,11 +653,11 @@ const CalendarSection = ({ copiedId, onCopy }: { copiedId: string | null; onCopy
       </div>
 
       <div className="cal-grid single-column">
-        <CalendarCard id="cal-1" number="01" type="grid" caption="Loading ..." note="Reference: Tov / Logo + Growth Station" copiedId={copiedId} onCopy={onCopy} />
+        <CalendarCard id="cal-1" number="01" type="grid" caption="Loading ..." tov="Our Slogan" objective="Brand introduction" timer="Week 1, Day 1" note="Reference: Tov / Logo + Growth Station" copiedId={copiedId} onCopy={onCopy} />
         
-        <CalendarCard id="cal-2" number="02" type="reel" caption="Stay Tuned .. link" copiedId={copiedId} onCopy={onCopy} />
+        <CalendarCard id="cal-2" number="02" type="reel" caption="Stay Tuned .. link" tov="Professional" objective="Teaser for launch" timer="Week 1, Day 2" copiedId={copiedId} onCopy={onCopy} />
         
-        <CalendarCard id="cal-3" number="03" type="post" caption="(لما نختاره)" note="TOV: Our Slogan · Reference: Your success partner should be — Growth Station" copiedId={copiedId} onCopy={onCopy} />
+        <CalendarCard id="cal-3" number="03" type="post" caption="(لما نختاره)" tov="Our Slogan" objective="Brand positioning" timer="Week 1, Day 3" note="Reference: Your success partner should be — Growth Station" copiedId={copiedId} onCopy={onCopy} />
       </div>
     </section>
 
@@ -672,17 +672,17 @@ const CalendarSection = ({ copiedId, onCopy }: { copiedId: string | null; onCopy
       </div>
 
       <div className="cal-grid single-column">
-        <CalendarCard id="cal-4" number="04" type="reel" caption="لو انت اللي بتكتب وتصور وتعمل المونتاچ؟<br/>يبقي أكيد فيه حاجة غلط ..<br/>خليها علينا وإدي العيش لخبازه<br/>لإن كل اللي براندك محتاجه — موجود في مكان واحد" note="IN: هنعمل cover لكل الريلز اللي هتنزل علي الأكونت · Script: to be written" copiedId={copiedId} onCopy={onCopy} />
+        <CalendarCard id="cal-4" number="04" type="reel" caption="لو انت اللي بتكتب وتصور وتعمل المونتاچ؟<br/>يبقي أكيد فيه حاجة غلط ..<br/>خليها علينا وإدي العيش لخبازه<br/>لإن كل اللي براندك محتاجه — موجود في مكان واحد" tov="Professional" objective="Service offering" timer="Week 2, Day 1" script="Script: to be written" note="IN: هنعمل cover لكل الريلز اللي هتنزل علي الأكونت" copiedId={copiedId} onCopy={onCopy} />
         
-        <CalendarCard id="cal-5" number="05" type="reel" caption="الماركتنج في مصر مش رفاهية! ده &quot;أداة بقاء&quot;<br/>والتسويق الصح هو اللي بيحول الزحمة لفرص، والمنافسة لسيطرة" note="Script: to be written" copiedId={copiedId} onCopy={onCopy} />
+        <CalendarCard id="cal-5" number="05" type="reel" caption="الماركتنج في مصر مش رفاهية! ده &quot;أداة بقاء&quot;<br/>والتسويق الصح هو اللي بيحول الزحمة لفرص، والمنافسة لسيطرة" tov="Strategic" objective="Education" timer="Week 2, Day 2" script="Script: to be written" copiedId={copiedId} onCopy={onCopy} />
         
-        <CalendarCard id="cal-6" number="06" type="carousel" caption={`<span class="slide-tag">SLIDE 1</span><br/>إزاي توصل من 10 آلاف لـ 100 ألف متابع<br/><span class="slide-tag">SLIDE 2</span><br/>بجد! هما قالولك إن الموضوع بالبساطة دي؟<br/><span class="slide-tag">SLIDE 3</span><br/>الحقيقة إن دي خدعة كبيرة. لو كانت بالسهولة دي، كان كل اللي ماشي في الشارع دلوقتي بقى &quot;إنفلونسر&quot; وعنده درع المليون<br/><span class="slide-tag">SLIDE 4</span><br/>شركات الماركتينج بتبيعلك الوهم تحت مسمى &quot;النمو السريع&quot;، بيوهموك إن فيه &quot;زرار سحري&quot; أو &quot;تريكاية معينة&quot; هتخلي حسابك ينفجر في أسبوع<br/><span class="slide-tag">SLIDE 5</span><br/>الحقيقة المرة؟ المتابعين اللي بييجوا بضغطة زرار هما اللي بيدفنوا حسابك للأبد. الخوارزميات مش غبية؛ هي بتدور على تفاعل حقيقي مش أرقام ميتة<br/><span class="slide-tag">SLIDE 6</span><br/>لو عايز تكبر بجد وبشكل منطقي؟ ف المعادلة بسيطة: قيمة حقيقية بتحل مشكلة ✅ استمرارية مرضية لجمهورك ✅ فهم دقيق للي جمهورك محتاجه فعلاً مش اللي أنت عايز تقوله ✅<br/><span class="slide-tag">SLIDE 7</span><br/>خدعوك فقالوا .. لو عايز تبني إمبراطورية مش مجرد رقم على الشاشة، بطل تدور على السهل .. اعمل فولو لو عايز تعرف إزاي تبني جمهور حقيقي بيشتري منك مش بس بيتفرج عليك`} badge="Carousel · 7 slides" fullSpan copiedId={copiedId} onCopy={onCopy} />
+        <CalendarCard id="cal-6" number="06" type="carousel" caption={`<span class="slide-tag">SLIDE 1</span><br/>إزاي توصل من 10 آلاف لـ 100 ألف متابع<br/><span class="slide-tag">SLIDE 2</span><br/>بجد! هما قالولك إن الموضوع بالبساطة دي؟<br/><span class="slide-tag">SLIDE 3</span><br/>الحقيقة إن دي خدعة كبيرة. لو كانت بالسهولة دي، كان كل اللي ماشي في الشارع دلوقتي بقى &quot;إنفلونسر&quot; وعنده درع المليون<br/><span class="slide-tag">SLIDE 4</span><br/>شركات الماركتينج بتبيعلك الوهم تحت مسمى &quot;النمو السريع&quot;، بيوهموك إن فيه &quot;زرار سحري&quot; أو &quot;تريكاية معينة&quot; هتخلي حسابك ينفجر في أسبوع<br/><span class="slide-tag">SLIDE 5</span><br/>الحقيقة المرة؟ المتابعين اللي بييجوا بضغطة زرار هما اللي بيدفنوا حسابك للأبد. الخوارزميات مش غبية؛ هي بتدور على تفاعل حقيقي مش أرقام ميتة<br/><span class="slide-tag">SLIDE 6</span><br/>لو عايز تكبر بجد وبشكل منطقي؟ ف المعادلة بسيطة: قيمة حقيقية بتحل مشكلة ✅ استمرارية مرضية لجمهورك ✅ فهم دقيق للي جمهورك محتاجه فعلاً مش اللي أنت عايز تقوله ✅<br/><span class="slide-tag">SLIDE 7</span><br/>خدعوك فقالوا .. لو عايز تبني إمبراطورية مش مجرد رقم على الشاشة، بطل تدور على السهل .. اعمل فولو لو عايز تعرف إزاي تبني جمهور حقيقي بيشتري منك مش بس بيتفرج عليك`} tov="Educational" objective="Reality check" timer="Week 2, Day 3" badge="Carousel · 7 slides" fullSpan copiedId={copiedId} onCopy={onCopy} />
         
-        <CalendarCard id="cal-7" number="07" type="reel" caption="في العصر الحالي .. اللي بيعرف يوصل للناس هو اللي بيكسب<br/>ف لو عايز تبني بيزنس حقيقي! لازم تبني &quot;براند&quot; في عقول الناس الأول.<br/>اعمل فولو عشان تعرف أسرار البيزنس اللي مبيقولوهاش ليك في الكتب." note="Script: to be written" copiedId={copiedId} onCopy={onCopy} />
+        <CalendarCard id="cal-7" number="07" type="reel" caption="في العصر الحالي .. اللي بيعرف يوصل للناس هو اللي بيكسب<br/>ف لو عايز تبني بيزنس حقيقي! لازم تبني &quot;براند&quot; في عقول الناس الأول.<br/>اعمل فولو عشان تعرف أسرار البيزنس اللي مبيقولوهاش ليك في الكتب." tov="Strategic" objective="CTA" timer="Week 2, Day 4" script="Script: to be written" copiedId={copiedId} onCopy={onCopy} />
         
-        <CalendarCard id="cal-8" number="08" type="reel" caption="تفتكر ليه Gen_Z عاملين مشاكل في الشغل؟" note="Script: to be written" copiedId={copiedId} onCopy={onCopy} />
+        <CalendarCard id="cal-8" number="08" type="reel" caption="تفتكر ليه Gen_Z عاملين مشاكل في الشغل؟" tov="Engaging" objective="Hook" timer="Week 2, Day 5" script="Script: to be written" copiedId={copiedId} onCopy={onCopy} />
         
-        <CalendarCard id="cal-9" number="09" type="reel" caption="السوق بقى زحمة؟<br/>الكل بيقلد بعضه؟<br/>هقولك إزاي تخرج برا الزحمة دي في 60 ثانية" note="Script: to be written" copiedId={copiedId} onCopy={onCopy} />
+        <CalendarCard id="cal-9" number="09" type="reel" caption="السوق بقى زحمة؟<br/>الكل بيقلد بعضه؟<br/>هقولك إزاي تخرج برا الزحمة دي في 60 ثانية" tov="Solution-oriented" objective="Differentiation" timer="Week 2, Day 6" script="Script: to be written" copiedId={copiedId} onCopy={onCopy} />
       </div>
     </section>
 
@@ -697,11 +697,11 @@ const CalendarSection = ({ copiedId, onCopy }: { copiedId: string | null; onCopy
       </div>
 
       <div className="cal-grid single-column">
-        <CalendarCard id="cal-10" number="10" type="post" caption="تم تفعيل وضع: بعد العيد<br/>وكل سنة وانتوا طيبين" note="IN: تنشر قبل العيد بكذا يوم · TOV: بعد العيد" copiedId={copiedId} onCopy={onCopy} />
+        <CalendarCard id="cal-10" number="10" type="post" caption="تم تفعيل وضع: بعد العيد<br/>وكل سنة وانتوا طيبين" tov="Engaging" objective="Seasonal" timer="Week 3, Day 1" note="IN: تنشر قبل العيد بكذا يوم" copiedId={copiedId} onCopy={onCopy} />
         
-        <CalendarCard id="cal-11" number="11" type="reel" caption="عيدكم مبارك<br/>أعاده الله علينا وعليكم باليمن والبركات" note="IN: نبدل شخصية الراجل بالكاركتر بتاعنا · TOV: عيد أضحى مبارك" copiedId={copiedId} onCopy={onCopy} />
+        <CalendarCard id="cal-11" number="11" type="reel" caption="عيدكم مبارك<br/>أعاده الله علينا وعليكم باليمن والبركات" tov="Celebratory" objective="Holiday greeting" timer="Week 3, Day 2" note="IN: نبدل شخصية الراجل بالكاركتر بتاعنا" copiedId={copiedId} onCopy={onCopy} />
         
-        <CalendarCard id="cal-12" number="12" type="reel" caption="انسى كورسات الماركتينج ..<br/>الفراعنة هم اللي اخترعوا الـ Viral Content" note="Script: to be written" copiedId={copiedId} onCopy={onCopy} />
+        <CalendarCard id="cal-12" number="12" type="reel" caption="انسى كورسات الماركتينج ..<br/>الفراعنة هم اللي اخترعوا الـ Viral Content" tov="Historical" objective="Education" timer="Week 3, Day 3" script="Script: to be written" copiedId={copiedId} onCopy={onCopy} />
       </div>
     </section>
   </>
@@ -881,7 +881,7 @@ const FunnelRow = ({ id, number, title, children, copiedId, onCopy }: { id: stri
   );
 };
 
-const CalendarCard = ({ id, number, type, caption, note, badge, fullSpan, copiedId, onCopy }: { 
+const CalendarCard = ({ id, number, type, caption, note, badge, fullSpan, copiedId, onCopy, tov, objective, script, links, timer }: { 
   id: string; 
   number: string; 
   type: string; 
@@ -890,7 +890,12 @@ const CalendarCard = ({ id, number, type, caption, note, badge, fullSpan, copied
   badge?: string; 
   fullSpan?: boolean; 
   copiedId: string | null; 
-  onCopy: (text: string, id: string) => void 
+  onCopy: (text: string, id: string) => void;
+  tov?: string;
+  objective?: string;
+  script?: string;
+  links?: string;
+  timer?: string;
 }) => {
   const handleClick = () => {
     const element = document.getElementById(id);
@@ -933,8 +938,51 @@ const CalendarCard = ({ id, number, type, caption, note, badge, fullSpan, copied
       <div className="cal-head">
         <span className="cal-num">{number}</span>
         <span className={`cal-badge ${getBadgeClass(type)}`}>{badge || type}</span>
+        {timer && <span className="cal-timer">⏰ {timer}</span>}
       </div>
+      
+      {/* TOV Section */}
+      {tov && (
+        <div className="cal-field">
+          <span className="cal-field-label">TOV:</span>
+          <span className="cal-field-value" dangerouslySetInnerHTML={{ __html: tov }} />
+        </div>
+      )}
+      
+      {/* Caption Section */}
       <div className="cal-caption" id={id} dangerouslySetInnerHTML={{ __html: caption }} />
+      
+      {/* Type Section */}
+      <div className="cal-field">
+        <span className="cal-field-label">Type:</span>
+        <span className="cal-field-value">{type}</span>
+      </div>
+      
+      {/* Objective Section */}
+      {objective && (
+        <div className="cal-field">
+          <span className="cal-field-label">Objective:</span>
+          <span className="cal-field-value" dangerouslySetInnerHTML={{ __html: objective }} />
+        </div>
+      )}
+      
+      {/* Script Section */}
+      {script && (
+        <div className="cal-field">
+          <span className="cal-field-label">Script:</span>
+          <span className="cal-field-value" dangerouslySetInnerHTML={{ __html: script }} />
+        </div>
+      )}
+      
+      {/* Links Section */}
+      {links && (
+        <div className="cal-field">
+          <span className="cal-field-label">Links:</span>
+          <span className="cal-field-value" dangerouslySetInnerHTML={{ __html: links }} />
+        </div>
+      )}
+      
+      {/* Note Section */}
       {note && <div className="cal-note" dangerouslySetInnerHTML={{ __html: note.replace(/·/g, ' · ') }} />}
     </div>
   );

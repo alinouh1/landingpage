@@ -340,7 +340,7 @@ export default function ProtectedPage() {
             <div style={{
               lineHeight: '1.8',
               fontSize: '1.05rem',
-              opacity: 0.95'
+              opacity: 0.95
             }} dangerouslySetInnerHTML={{ __html: featuredStrategy.answer }} />
           </div>
         </div>

@@ -539,12 +539,14 @@ section.block.sub-section .block-head h2 {
 
 .grid-4 {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
 }
 
 @media (max-width: 900px) {
-  .grid-2,
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
   .grid-4 {
     grid-template-columns: 1fr;
   }
@@ -554,35 +556,41 @@ section.block.sub-section .block-head h2 {
 .cascade-card {
   background: var(--card);
   border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 20px;
+  border-radius: 16px;
+  padding: 24px;
   position: relative;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cascade-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .cascade-card .cc-label {
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--green-900);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   padding-right: 34px;
 }
 
 .cascade-card ul {
-  padding-left: 16px;
+  padding-left: 18px;
 }
 
 .cascade-card li {
-  font-size: 0.85rem;
-  line-height: 1.5;
+  font-size: 0.9rem;
+  line-height: 1.6;
   color: var(--ink-soft);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .cascade-card .copy-btn {
-  top: 12px;
-  right: 12px;
+  top: 16px;
+  right: 16px;
   left: auto;
-  padding: 4px 9px;
+  padding: 6px 12px;
 }
 
 /* ---------- Pillar Card ---------- */
@@ -893,6 +901,15 @@ footer {
   .cal-grid {
     grid-template-columns: 1fr;
   }
+  
+  .cal-card .cal-field {
+    flex-direction: column;
+    gap: 4px;
+  }
+  
+  .cal-card .cal-field-label {
+    margin-bottom: 2px;
+  }
 }
 
 .cal-card {
@@ -959,7 +976,43 @@ footer {
   border: 1px solid var(--line);
 }
 
+.cal-card .cal-timer {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  background: var(--bg-soft);
+  border-radius: 6px;
+  padding: 3px 8px;
+  margin-left: auto;
+}
 
+.cal-card .cal-field {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  background: var(--bg-soft);
+  border-radius: 8px;
+}
+
+.cal-card .cal-field-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--green-800);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.cal-card .cal-field-value {
+  font-family: 'Cairo', 'Inter', sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  flex: 1;
+}
 
 .cal-card .cal-caption {
   direction: rtl;
@@ -1149,7 +1202,7 @@ footer {
 
   .cascade-card,
   .pillar-card {
-    padding: 16px;
+    padding: 20px;
   }
 
   .pillar-card h3 {
@@ -1334,7 +1387,7 @@ footer {
 
   .cascade-card,
   .pillar-card {
-    padding: 14px;
+    padding: 18px;
   }
 
   .pillar-card h3 {
