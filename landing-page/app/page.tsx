@@ -252,17 +252,6 @@ export default function GrowthStationPlaybook() {
   return (
     <div className="playbook-container">
       <aside className="sidebar">
-        <div className="sidebar-brand">
-          <span className="sidebar-dot"></span>
-          <h1>GROWTH STATION</h1>
-        </div>
-        <div className="sidebar-sub">Brand &amp; Growth Playbook</div>
-
-        <div className="sidebar-callout">
-          <strong>Strategy before execution.</strong>
-          <p>Growth beyond borders. This is the full positioning, audience, funnel, and content-pillar doc — every block below has its own copy button.</p>
-        </div>
-
         {navigation}
       </aside>
 
@@ -293,9 +282,15 @@ export default function GrowthStationPlaybook() {
         </div>
 
         <div className="hero">
-          <div className="eyebrow">Cairo · Egypt &amp; GCC</div>
-          <h1>Who is Growth Station?</h1>
-          <p className="lede">A Cairo-based digital marketing agency built on a single, non-negotiable principle: strategy must come before execution. Every section below is copy-ready — click Copy on any card.</p>
+          <div className="hero-brand">
+            <div className="hero-brand-dot"></div>
+            <h1>GROWTH STATION</h1>
+          </div>
+          <div className="hero-sub">Brand &amp; Growth Playbook</div>
+          <div className="hero-callout">
+            <strong>Strategy before execution.</strong>
+            <p>Growth beyond borders. This is the full positioning, audience, funnel, and content-pillar doc — every block below has its own copy button.</p>
+          </div>
         </div>
 
         {/* 01 POSITIONING */}
