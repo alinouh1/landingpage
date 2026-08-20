@@ -312,7 +312,7 @@ export default function ProtectedPage() {
           margin: '0 auto 60px'
         }}>
           <div style={{
-            background: 'linear-gradient(135deg, #003B0C 0%, #023404 100%)',
+            background: '#0a3206',
             borderRadius: '20px',
             padding: '50px',
             color: '#dfebf7',

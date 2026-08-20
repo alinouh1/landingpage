@@ -89,7 +89,7 @@ body {
 .login-icon {
   width: 80px;
   height: 80px;
-  background: linear-gradient(135deg, var(--green-900) 0%, var(--green-800) 100%);
+  background: #0a3206;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -166,7 +166,7 @@ body {
 .login-button {
   width: 100%;
   padding: 16px;
-  background: linear-gradient(135deg, var(--green-900) 0%, var(--green-800) 100%);
+  background: #0a3206;
   color: #fff;
   border: none;
   border-radius: 12px;
@@ -230,7 +230,7 @@ body {
 .sidebar {
   width: 270px;
   flex-shrink: 0;
-  background: linear-gradient(180deg, var(--green-900) 0%, var(--green-800) 100%);
+  background: #0a3206;
   color: #EAF2EB;
   position: sticky;
   top: 0;
@@ -734,7 +734,7 @@ section.block.sub-section .block-head h2 {
 
 /* ---------- Pain Quote ---------- */
 .pain-quote {
-  background: linear-gradient(135deg, var(--green-900), var(--green-700));
+  background: #0a3206;
   color: #EAF2EB;
   border-radius: 14px;
   padding: 26px 28px;
