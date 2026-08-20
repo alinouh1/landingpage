@@ -58,13 +58,27 @@ body {
 
 .login-card {
   background: var(--card);
-  padding: 60px 40px;
+  padding: 60px 50px;
   border-radius: 24px;
   box-shadow: 0 8px 32px rgba(16, 36, 26, 0.12);
-  max-width: 450px;
+  max-width: 600px;
   width: 100%;
   text-align: center;
   border: 2px solid var(--line);
+}
+
+@media (min-width: 768px) {
+  .login-card {
+    max-width: 650px;
+    padding: 60px 60px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .login-card {
+    max-width: 700px;
+    padding: 70px 80px;
+  }
 }
 
 .login-icon {
@@ -176,6 +190,7 @@ body {
 @media (max-width: 480px) {
   .login-card {
     padding: 40px 24px;
+    max-width: 100%;
   }
 
   .login-card h1 {
@@ -190,6 +205,13 @@ body {
   .login-icon svg {
     width: 30px;
     height: 30px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .login-card {
+    max-width: 90%;
+    padding: 50px 40px;
   }
 }
 
